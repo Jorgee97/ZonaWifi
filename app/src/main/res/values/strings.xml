@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ZonasWifi</string>
+
+    <string name="preferences">Preferencias</string>
+</resources>
