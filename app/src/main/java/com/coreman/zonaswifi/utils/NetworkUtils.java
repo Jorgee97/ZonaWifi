@@ -17,7 +17,7 @@ public class NetworkUtils {
 
     public static URL buildURL(String department) {
         Uri buildUri = Uri.parse(BASE_API_URL).buildUpon()
-                .appendQueryParameter(NetworkingService.DEPARTMENT_QUERY, department)
+                .appendQueryParameter(NetworkingService.SEARCH_QUERY, department)
                 .build();
 
         URL url = null;

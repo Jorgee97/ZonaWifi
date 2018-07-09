@@ -2,4 +2,6 @@
     <string name="app_name">ZonasWifi</string>
 
     <string name="preferences">Preferencias</string>
+    <string name="hint_location">Departamento o municipio</string>
+    <string name="zone_location">%1$s, %2$s</string>
 </resources>

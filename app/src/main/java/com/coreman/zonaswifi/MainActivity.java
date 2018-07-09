@@ -17,8 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
-import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.coreman.zonaswifi.adapters.ZonaWifiAdapter;
@@ -26,7 +25,6 @@ import com.coreman.zonaswifi.models.ZonaWifiItem;
 import com.coreman.zonaswifi.services.NetworkingService;
 import com.coreman.zonaswifi.utils.NetworkHelper;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     ZonaWifiAdapter mAdapter;
 
     RecyclerView mRecyclerView;
+    ProgressBar mProgressBar;
 
     private boolean networkOk;
 
@@ -69,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recycler_wifi_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
+        mProgressBar = findViewById(R.id.progress_bar);
     }
 
     @Override
@@ -83,18 +84,26 @@ public class MainActivity extends AppCompatActivity {
             InputMethodManager imm = (InputMethodManager) MainActivity.this.getSystemService(INPUT_METHOD_SERVICE);
             imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
 
+            mProgressBar.setVisibility(View.VISIBLE);
+
             if (networkOk && !mSearchText.getText().toString().equals("")) {
                 Intent callService = new Intent(MainActivity.this, NetworkingService.class);
-                callService.putExtra(NetworkingService.DEPARTMENT_QUERY, mSearchText.getText().toString());
+                callService.putExtra(NetworkingService.SEARCH_QUERY, mSearchText.getText().toString());
                 startService(callService);
             }
         }
     };
 
     private void displayData() {
+        mProgressBar.setVisibility(View.INVISIBLE);
         if (mDataSet != null) {
             mAdapter = new ZonaWifiAdapter(this, mDataSet);
             mRecyclerView.setAdapter(mAdapter);
+        } else {
+            Toast.makeText(this,
+                    "No se encontro informacion para esta busqueda.",
+                    Toast.LENGTH_SHORT)
+                    .show();
         }
     }
 

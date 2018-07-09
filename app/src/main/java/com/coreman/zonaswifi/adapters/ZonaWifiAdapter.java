@@ -39,11 +39,10 @@ public class ZonaWifiAdapter extends RecyclerView.Adapter<ZonaWifiAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final ZonaWifiItem item = mWifiItems.get(position);
 
-        holder.operacional.setText(item.getEstadoDeLaZona());
-        holder.municipio.setText(item.getMunicipio());
-
-        // TODO: Pending to add the onClickListeners to the view itself
-        // Where we must pass the location parameter to the map
+        holder.zoneName.setText(item.getNombreZonaWifi());
+        holder.zoneLocation.setText(mContext.getString(R.string.zone_location, item.getDepartamento(), item.getMunicipio()));
+        holder.zoneDirection.setText(item.getDireccion());
+        holder.zoneStatus.setText(item.getEstadoDeLaZona());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,15 +64,19 @@ public class ZonaWifiAdapter extends RecyclerView.Adapter<ZonaWifiAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView municipio;
-        public TextView operacional;
+        public TextView zoneName;
+        public TextView zoneLocation;
+        public TextView zoneDirection;
+        public TextView zoneStatus;
         public View mView;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            municipio = itemView.findViewById(R.id.txt_municipio);
-            operacional = itemView.findViewById(R.id.txt_estado);
+            zoneName = itemView.findViewById(R.id.zone_name);
+            zoneLocation = itemView.findViewById(R.id.zone_location);
+            zoneDirection = itemView.findViewById(R.id.zone_direction);
+            zoneStatus = itemView.findViewById(R.id.zone_status);
             mView = itemView;
         }
     }

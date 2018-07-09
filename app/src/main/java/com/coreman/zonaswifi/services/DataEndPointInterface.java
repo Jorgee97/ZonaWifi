@@ -15,6 +15,7 @@ public interface DataEndPointInterface {
     String BASE_URL = "https://www.datos.gov.co/";
     String WHOLE = "resource/hbap-jitp.json";
     String DEPARTMENT = "resource/hbap-jitp.json?$order=municipio%20ASC";
+    String MUNICIPIO = "resource/hbap-jitp.json";
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -26,4 +27,7 @@ public interface DataEndPointInterface {
 
     @GET(DEPARTMENT)
     Call<ZonaWifiItem[]> zonaWifiItems(@Query("departamento") String departamento);
+
+    @GET(MUNICIPIO)
+    Call<ZonaWifiItem[]> zonaWifiItemsMunicipio(@Query("municipio") String municipio);
 }
