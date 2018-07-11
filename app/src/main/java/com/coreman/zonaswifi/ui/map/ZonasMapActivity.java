@@ -1,4 +1,4 @@
-package com.coreman.zonaswifi.ui;
+package com.coreman.zonaswifi.ui.map;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

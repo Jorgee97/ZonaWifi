@@ -1,4 +1,4 @@
-package com.coreman.zonaswifi.adapters;
+package com.coreman.zonaswifi.ui.main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,8 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.coreman.zonaswifi.R;
-import com.coreman.zonaswifi.models.ZonaWifiItem;
-import com.coreman.zonaswifi.ui.ZonasMapActivity;
+import com.coreman.zonaswifi.ui.map.ZonasMapActivity;
 import com.coreman.zonaswifi.utils.Constants;
 
 import java.util.List;

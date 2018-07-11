@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 
-import com.coreman.zonaswifi.models.ZonaWifiItem;
+import com.coreman.zonaswifi.ui.main.ZonaWifiItem;
 
 import java.io.IOException;
 

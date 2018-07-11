@@ -1,4 +1,4 @@
-package com.coreman.zonaswifi.models;
+package com.coreman.zonaswifi.ui.main;
 
 import android.os.Parcel;
 import android.os.Parcelable;

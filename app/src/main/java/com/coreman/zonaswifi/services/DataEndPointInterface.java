@@ -1,14 +1,11 @@
 package com.coreman.zonaswifi.services;
 
-import com.coreman.zonaswifi.models.ZonaWifiItem;
-
-import java.util.List;
+import com.coreman.zonaswifi.ui.main.ZonaWifiItem;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface DataEndPointInterface {

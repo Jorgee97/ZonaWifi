@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:launchMode="singleTop">
+        <activity android:name=".ui.main.MainActivity" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,10 +31,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/api_key" />
 
-        <activity android:name=".ui.ZonasMapActivity"
-            android:parentActivityName=".MainActivity">
+        <activity android:name=".ui.map.ZonasMapActivity"
+            android:parentActivityName=".ui.main.MainActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".ui.main.MainActivity"/>
         </activity>
     </application>
 
